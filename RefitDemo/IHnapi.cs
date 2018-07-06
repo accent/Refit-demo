@@ -2,13 +2,14 @@
 {
     using Refit;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public interface IHnapi
     {
         [Get("/item/{id}")]
-        Item GetItem(int id);
+        Task<Item> GetItem(int id);
 
         [Get("/news?page={pageId}")]
-        IEnumerable<Item> GetPage(int pageId);
+        Task<IEnumerable<Item>> GetPage(int pageId);
     }
 }
